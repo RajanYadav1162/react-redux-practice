@@ -9,11 +9,21 @@ const initialState = {
 };
 
 export const addTodo = (data) => {
-  const { text, done } = data;
-  const id = initialState.todos.length + 1;
-  const newTodo = { id, text, done };
+  const idmaker =
+    "1232434534645758589sfasdfsdfgwetweJHSGSGHHHJHKJHKQJHK!@$%^&*(";
+  const sizeidMaker = idmaker.length;
+  let id = "";
+  for (let i = 0; i < 10; i++) {
+    id += idmaker[Math.floor(Math.random() * sizeidMaker)];
+  }
+  return (dispatch) => {
+    setTimeout(() => {
+      const { text, done } = data;
 
-  return { type: ADD_TODO, payload: newTodo };
+      const newTodo = { id, text, done };
+      return dispatch({ type: ADD_TODO, payload: newTodo });
+    }, 2000);
+  };
 };
 
 export const removeTodo = (data) => {
