@@ -8,7 +8,6 @@ const TodoPage = () => {
 
   const handleInput = (e) => {
     setInput(e.target.value);
-    setInput("");
   };
 
   const todos = useSelector((state) => state.todoReducer.todos);
@@ -16,6 +15,7 @@ const TodoPage = () => {
 
   const handleAdd = () => {
     dispatch(addTodo({ text: input, done: false }));
+    setInput("");
   };
   const handleRemove = (id) => {
     dispatch(removeTodo(id));
