@@ -8,6 +8,7 @@ const TodoPage = () => {
 
   const handleInput = (e) => {
     setInput(e.target.value);
+    setInput("");
   };
 
   const todos = useSelector((state) => state.todoReducer.todos);
